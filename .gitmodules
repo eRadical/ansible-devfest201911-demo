@@ -1,0 +1,3 @@
+[submodule "roles/virtual_machine"]
+	path = roles/virtual_machine
+	url = git@gitlab.com:eRadical/ansible-role-virtual-machine.git

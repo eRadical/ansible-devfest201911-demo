@@ -1,0 +1,45 @@
+---
+all:
+  children:
+    gitlab:
+      hosts:
+        gitlab:
+          provider: aws
+          add_in_dns: true
+          instance_type: c5.xlarge
+          image: centos7
+          region: eu-central-1
+          volumes:
+            - device_name: /dev/sda1
+              ebs:
+                volume_type: gp2
+                volume_size: 160
+                delete_on_termination: no
+          group:
+            - sg-49a62a2b
+          vpc_subnet: subnet-131e0f6e
+          tags:
+            Env: prod
+            Layer: devops
+            Role: gitlab
+    gitlab_runners:
+      hosts:
+        gitlab-runner-[01:02]:
+          provider: aws
+          add_in_dns: true
+          instance_type: t3a.medium
+          image: fedora30
+          region: eu-central-1
+          volumes:
+            - device_name: /dev/sda1
+              ebs:
+                volume_type: gp2
+                volume_size: 80
+                delete_on_termination: yes
+          group:
+            - sg-49a62a2b
+          vpc_subnet: subnet-131e0f6e
+          tags:
+            Env: prod
+            Layer: devops
+            Role: gitlab-runner
