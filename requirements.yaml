@@ -1,0 +1,15 @@
+# Update using:
+#   ansible-galaxy install -p roles/ -r requirements.yaml
+# !!! PLEASE ADD MODULES IN ALPABETIC ORDER !!!
+
+# from galaxy
+
+- name: gitlab
+  src: git@github.com:adswizz/ansible-role-gitlab.git
+  scm: git
+  version: install-directly-with-exact-url
+
+- name: gitlab-runner
+  src: git@github.com:eRadical/ansible-gitlab-runner.git
+  scm: git
+  version: e9b648d3397ebe8e28014f1b4cfaf33874f0c96c

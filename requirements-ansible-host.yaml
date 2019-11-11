@@ -1,0 +1,47 @@
+- name: Prepare local machine for running Ansible
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Python modules
+    pip:
+      name:
+        - boto
+        - boto3
+      state: forcereinstall
+      executable: pip3
+    changed_when: false
+
+  - name: Install letsencrypt python34 deps packages on RedHat/CentOS
+    yum:
+      skip_broken: yes
+      state: present
+      update_cache: yes
+      name:
+        - python34
+        - python34-pip
+        - python34-zope-interface
+        - openssl
+    when: ansible_distribution == 'CentOS'
+
+  - name: Install letsencrypt python34 deps packages
+    pip:
+      name:
+        - certbot
+        - certbot-dns-route53
+      executable: pip3
+    when: ansible_distribution == 'CentOS'
+
+  - name: Install certbot using dnf on Fedora
+    dnf:
+      state: present
+      name:
+        - python3-certbot-dns-route53
+        - certbot
+        - python3-zope-interface
+        - openssl
+    when: ansible_distribution == 'Fedora'
+
+  - name: Install letsencrypt on Mac OS
+    become: no
+    shell: "brew install certbot; pip3.6 install certbot-dns-route53"
+    when: ansible_os_family == 'Darwin'
