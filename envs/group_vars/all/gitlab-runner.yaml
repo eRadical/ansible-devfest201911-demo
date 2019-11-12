@@ -1,0 +1,23 @@
+---
+gitlab_runner_concurrent: 1
+gitlab_check_interval: 2
+gitlab_runner_list:
+- coordinator_url: "http://{{ gitlab_main_domain }}/"
+  registration_token: "{{ gitlab_runner_registration_token }}"
+  description: '{{ inventory_hostname }}__SHELL'
+  executor: 'shell'
+  tags:
+  - shell
+  - bash
+- coordinator_url: "http://{{ gitlab_main_domain }}/"
+  registration_token: "{{ gitlab_runner_registration_token }}"
+  description: '{{ inventory_hostname }}__DOCKER'
+  executor: 'docker'
+  docker_image: "centos:latest"
+  docker_tlsverify: "false"
+  docker_volumes: "/home/gitlab-runner/.m2:/root/.m2:rw"
+  docker_pull_policy: "always"
+  docker_privileged: "true"
+  tags:
+  - docker
+  - container

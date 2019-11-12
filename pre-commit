@@ -1,0 +1,25 @@
+#!/bin/bash
+
+GIT=$(which git)
+ANSIBLE_LINT=$(which ansible-review)
+XARGS=$(which xargs)
+
+if [[ "" == "$GIT" ]]
+then
+	echo -e "\tThis is the weirdest thing ever... you've cloned a git repo without git? Anyway no GIT executable in PATH. Please check...\n"
+	exit 1
+fi
+
+if [[ "" == "$ANSIBLE_LINT" ]]
+then
+	echo -e "\tCommand ansible-review was not found.\n\tInstall it w/:\n\n\t\tpip  install -U ansible-review\n"
+	exit 1
+fi
+
+if [[ "" == "$XARGS" ]]
+then
+	echo -e "\tNo xargs available - please install findutils\n"
+	exit 1
+fi
+
+$GIT diff --name-only | $XARGS $ANSIBLE_LINT -v

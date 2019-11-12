@@ -1,0 +1,14 @@
+---
+
+main_domain: aws.frenziness.com
+
+gitlab_main_domain: "gitlab.{{ main_domain }}"
+gitlab_registry_domain: "registry.{{ main_domain }}"
+
+gitlab_ses_user_name: "ses-smtp-user.gitlab"
+
+gitlab_main_email: gitlab@example.com
+
+machine_is_ansible_ready_file: /var/lib/ansible.ready
+machine_is_ansible_ready_delay: 20
+machine_is_ansible_ready_retries: 75

@@ -1,0 +1,9 @@
+---
+devops_group: devops
+
+devops:
+  gpreda:
+    name: Gabriel PREDA
+    pub_keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGiFhoZRmggB5uynes/OdYM24/vQJzk5TuvpIRCkj2mm gabriel.preda"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC7YbK5tSOKzJERiNRDOkhC6o99CvyswxfEj99IsUf3lHpXvoAZ2TKXpx9GbBzjT+Ac/OL9vTBubaW3hslrjmGBaKSxIQwcuO4eBEm/OV9bTUmIcTh8MEdzoJb3sqFZUI6fNXqVXjRYvNWge40za1hZFEqgmelaWu+/luVm/vAZlWKKP9CwHdELAwhO91zqtL+p7qQLnW9slBDkT1p/5yug1yIWffAyXU4/2dtBa6hYmqXVMNfJwGod5dZAWK1xF4yPZnBbqOI69Aw0gRWfIaHM7rr5coKOdY7K/rAswdlqLEi7YJgrAXzSy+7YfHvBIL1i8CDlYaDFcWJEpbg0U+d9Ac6Z65fafP3nGmZ8REE30EILYIbX6t/3fV78TJKI/t3RK6oeVkJF5ixTYzlYtbcFojWeal48d+aUXRYDGPJ89rLe14Nxx2kRHfpfGYhCaJbhy6Hcuza4x+267taXv6DE/H+W4BfkQ+EJhTHYx4sTutHPVzESOCLnmXyZzjo/Gc+l+qquwmEWyWye9HjO//LL038dN5KgkxiGuLvw36SxKvExqvmE9CeDq7s7Y0ivthFdCjoE3AaQEftkaZ80KxzDE3d6EMEME9G20Ms2d4qTnHhCfe2XPIQn8wH+aM0a3PSGDiAXB7XZ4GjNgKagCvEPklPll4O22O6jEsQKjw3XAw== gabriel.preda"

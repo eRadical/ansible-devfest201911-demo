@@ -1,11 +1,12 @@
 ---
 all:
   children:
-    gitlab:
+    gitlab_machine:
       hosts:
         gitlab:
           provider: aws
           add_in_dns: true
+          ansible_host: "gitlab.aws.frenziness.com"
           instance_type: c5.xlarge
           image: centos7
           region: eu-central-1
@@ -27,6 +28,7 @@ all:
         gitlab-runner-[01:02]:
           provider: aws
           add_in_dns: true
+          ansible_host: "{{ inventory_hostname }}.{{ main_domain }}"
           instance_type: t3a.medium
           image: fedora30
           region: eu-central-1

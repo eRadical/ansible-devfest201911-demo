@@ -1,0 +1,39 @@
+---
+# General config.
+gitlab_external_url: "http://{{ gitlab_main_domain }}/"
+gitlab_registry_external_url: "http://{{ gitlab_registry_domain }}"
+
+gitlab_git_data_dir: "/opt/gitlab/git-data"
+gitlab_edition: "gitlab-ce"
+gitlab_backup_path: "/opt/gitlab/backups"
+
+gitlab_config_template: "{{ playbook_dir }}/templates/gitlab.rb.j2"
+
+# SSL Configuration.
+gitlab_redirect_http_to_https: "false"
+
+# SSL Self-signed Certificate Configuration.
+gitlab_create_self_signed_cert: "false"
+
+# SMTP Configuration
+gitlab_smtp_enable: "false"
+
+# Email configuration.
+gitlab_email_enabled: "false"
+gitlab_email_from: "{{ gitlab_main_email }}"
+gitlab_email_display_name: "GitLab"
+gitlab_email_reply_to: "{{ gitlab_main_email }}"
+
+# GitLab S3 Backup
+gitlab_backup_cron_hour: '2'
+gitlab_backup_skip: "lfs,artifacts"
+
+# GitLab LFS in S3
+gitlab_lfs_object_store_enabled: "true"
+
+# GitLab Unicorn
+gitlab_unicorn_worker_timeout: 180
+gitlab_unicorn_worker_processes: 10
+
+# GitLab Let's Encrypt
+gitlab_letsencrypt_enable: "false"
