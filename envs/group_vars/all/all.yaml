@@ -1,7 +1,5 @@
 ---
 
-main_domain: aws.frenziness.com
-
 gitlab_main_domain: "gitlab.{{ main_domain }}"
 gitlab_registry_domain: "registry.{{ main_domain }}"
 

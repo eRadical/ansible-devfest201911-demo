@@ -1,0 +1,53 @@
+---
+all:
+  vars:
+    main_domain: gcp.frenziness.com
+    zone_name: gcp-frenziness-com
+  children:
+    gitlab_machine:
+      hosts:
+        gitlab:
+          provider: gcp
+          add_in_dns: true
+          ansible_host: "gitlab.gcp.frenziness.com"
+          machine_type: n2-standard-4
+          region: europe-west4
+          zone: europe-west4-a
+          disks:
+            - auto_delete: yes
+              boot: yes
+              index: 0
+              initialize_params:
+                disk_size_gb: 160
+                disk_type: pd-ssd
+                source_image: projects/centos-cloud/global/images/centos-7-v20191014
+          labels:
+            env: prod
+            layer: devops
+            role: gitlab
+          project: ansible-gcp-1337
+          tags:
+            - http-server
+
+#    gitlab_runners:
+#      hosts:
+#        gitlab-runner-[01:02]:
+#          provider: gcp
+#          add_in_dns: true
+#          ansible_host: "{{ inventory_hostname }}.{{ main_domain }}"
+#          instance_type: t3a.medium
+#          image: centos-7-v20191014
+#          region: eu-central-1
+#          volumes:
+#            - device_name: /dev/sda1
+#              ebs:
+#                volume_type: gp2
+#                volume_size: 80
+#                delete_on_termination: yes
+#          group:
+#            - sg-49a62a2b
+#          vpc_subnet: subnet-131e0f6e
+#          tags:
+#            Env: prod
+#            Layer: devops
+#            Role: gitlab-runner

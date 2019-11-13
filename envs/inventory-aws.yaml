@@ -1,5 +1,7 @@
 ---
 all:
+  vars:
+    main_domain: aws.frenziness.com
   children:
     gitlab_machine:
       hosts:
