@@ -1,14 +1,14 @@
 ---
 all:
   vars:
-    main_domain: aws.frenziness.com
+    main_domain: aws.example.com
   children:
     gitlab_machine:
       hosts:
         gitlab:
           provider: aws
           add_in_dns: true
-          ansible_host: "gitlab.aws.frenziness.com"
+          ansible_host: "gitlab.aws.example.com"
           instance_type: c5.xlarge
           image: centos7
           region: eu-central-1
